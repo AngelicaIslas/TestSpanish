@@ -401,7 +401,7 @@ document.getElementById("confirm-selection").addEventListener("click", () => {
             document.getElementById("next-repetition").style.display = "block";
         }
     } else {
-        alert("Please make valid selections.");
+        alert("Seleccione opciones válidas, por favor."); //alert("Please make valid selections.");
     }
 });
 
