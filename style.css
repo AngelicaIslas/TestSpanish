@@ -1,0 +1,178 @@
+/* General styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f9fc;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#container {
+    max-width: 600px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+}
+
+.card {
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    margin-bottom: 20px;
+}
+
+h1, h2, h3 {
+    font-weight: 400;
+    color: #333;
+}
+
+input[type="text"], select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Green confirm button */
+.confirm-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.confirm-button:hover {
+    background-color: #43A047;
+}
+
+.green-button {
+    background-color: #28a745;
+    color: white;
+}
+
+.green-button:hover {
+    background-color: #218838;
+}
+
+/* Active state for buttons */
+button:active {
+    background-color: #28a745; /* Green color for active state */
+    color: white; /* Text color to white */
+}
+
+/* Disabled button styling */
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.separator {
+    margin: 20px 0;
+    height: 2px;
+    background-color: #ddd;
+    width: 100%;
+}
+
+.range-container {
+    margin: 15px 0;
+    position: relative;
+}
+
+.range-labels {
+    display: flex;
+    justify-content: space-between;
+}
+
+.range-labels span {
+    font-size: 12px;
+}
+
+.scale-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+/* NASA-TLX Styling */
+input[type="range"] {
+    width: 100%;
+    margin: 10px 0;
+}
+
+#step-status {
+    margin-top: 20px;
+    font-size: 18px;
+    color: green;
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+#log-section pre {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.dimension {
+    margin-bottom: 40px; /* Add spacing between each dimension */
+}
+
+.range-container {
+    margin: 10px 0; /* Maintain existing margin */
+}
+
+/* General styles for the labels can remain the same */
+.bold {
+    font-weight: bold; /* This class makes text bold */
+}
+
+#alarm1-info, #alarm2-info {
+    display: none;
+}
+
+.right-align {
+    text-align: right; /* This aligns the text to the right */
+}
+
+/*-----*/
+
+button {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50; /* Default green color */
+    color: white; /* White text color */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+button:hover {
+    background-color: #43A047; /* Darker green on hover */
+}
+
+/* Other button styles (confirmation buttons, etc.) can remain the same */
+/*.confirm-button {
+    /* If you want to keep specific styles for this class, you can do so */
+/*}
+
+.green-button {
+    /* This can be kept or adjusted if you want it to match the standard button color */
+/*}

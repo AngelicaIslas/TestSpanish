@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa de Pruebas de Alarmas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <div id="group-selection" class="card">
+            <h1>Programa de Pruebas de Alarmas</h1>
+            <label for="group-number">Ingrese el Número de Grupo (1, 2 o 3):</label>
+            <input type="text" id="group-number" placeholder="Grupo 1, 2 o 3">
+            
+            <label for="personal-code">Ingrese el Código Personal:</label>
+            <input type="text" id="personal-code" placeholder="Su Código">
+            
+            <button id="start-learning">Iniciar Fase de Aprendizaje</button>
+            <button id="skip-learning" style="display:none;">Saltar a la Fase de Prueba</button>          
+        </div>
+
+        <div id="learning-phase" class="card" style="display:none;">
+            <h2>Fase de Aprendizaje</h2>
+            <p>Escuche las alarmas y familiarícese con ellas. La prueba seguirá después de esta fase.</p>
+            <p><span class="bold"> - Diseño: </span> <span id="design">Íconos</span></p>
+            <p><span class="bold"> - Categoría: </span> <span id="category"></span></p>
+            <p><span class="bold"> - Prioridad: </span> <span id="priority"></span></p>
+            <button id="go-to-test" style="display:none;">Ir a la Fase de Prueba</button>
+        </div>
+
+        <div id="test-phase" class="card" style="display:none;">
+            <h2>Fase de Prueba</h2>
+            <p><strong>Grupo:</strong> <span id="group-display"></span></p>
+            <p><strong>Secuencia de Diseño:</strong> <span id="design-sequence"></span></p>
+            <p class="right-align"><strong>Paso:</strong> <span id="step-number"></span></p>
+            <p class="right-align"><strong>Repetición:</strong> <span id="repetition-count"></span>/5</p>
+            <p><strong></strong> <span id="alarm1-info" ></span></p>
+            <p><strong></strong> <span id="alarm2-info"></span></p>
+
+            <div id="step-status" style="color: green;"></div>
+
+            <h3>Seleccione la categoría y prioridad para cada alarma</h3>
+
+            <!-- Alarm 1 Selection -->
+            <div class="alarm-selection">
+                <label for="alarm1-category">Categoría de Alarma 1:</label>
+                <select id="alarm1-category">
+                    <option value="">Seleccione la Categoría de Alarma 1</option>
+                    <option value="Cardiovascular">Cardiovascular</option>
+                    <option value="Ventilation">Ventilación</option>
+                    <option value="DrugAdministration">Administración de Medicamentos</option>
+                    <option value="I don't know">No sé</option> <!-- New option -->
+                </select>
+
+                <label for="alarm1-priority">Prioridad de Alarma 1:</label>
+                <select id="alarm1-priority">
+                    <option value="">Seleccione la Prioridad de Alarma 1</option>
+                    <option value="High">Alta</option>
+                    <option value="Medium">Media</option>
+                    <option value="I don't know">No sé</option> <!-- New option -->
+                </select>
+            </div>
+
+            <!-- Graphic separator between the two alarms -->
+            <div class="separator"></div>
+
+            <!-- Alarm 2 Selection -->
+            <div class="alarm-selection">
+                <label for="alarm2-category">Categoría de Alarma 2:</label>
+                <select id="alarm2-category">
+                    <option value="">Seleccione la Categoría de Alarma 2</option>
+                    <option value="Cardiovascular">Cardiovascular</option>
+                    <option value="Ventilation">Ventilación</option>
+                    <option value="DrugAdministration">Administración de Medicamentos</option>
+                    <option value="I don't know">No sé</option> <!-- New option -->
+                </select>
+
+                <label for="alarm2-priority">Prioridad de Alarma 2:</label>
+                <select id="alarm2-priority">
+                    <option value="">Seleccione la Prioridad de Alarma 2</option>
+                    <option value="High">Alta</option>
+                    <option value="Medium">Media</option>
+                    <option value="I don't know">No sé</option> <!-- New option -->
+                </select>
+            </div>
+
+            <!-- Buttons for Confirmation and Navigation -->
+            <div class="button-container">
+                <button id="confirm-selection" class="confirm-button" style="display:none;">Confirmar Selección</button>
+                <button id="next-repetition" class="next-repetition-button" style="display:none;">Siguiente Repetición</button>
+                <button id="next-step" style="display:none;">Siguiente Paso</button>
+                <button id="finish-test" style="display:none;" class="confirm-button">Finalizar Prueba</button>
+            </div>
+        </div>
+
+        <!-- NASA-TLX Questionnaire Section -->
+        <div id="nasa-tlx" class="card" style="display:none;">
+            <h2>Cuestionario NASA-TLX</h2>
+            <p>Por favor, califique lo siguiente de acuerdo a su experiencia con el último grupo de alarmas:</p>
+
+            <div class="dimension">
+                <label><strong>Demanda Mental</strong> - ¿Cuán demandante fue la tarea mentalmente?</label>
+                <div class="range-container">
+                    <input type="range" id="mental-demand" min="0" max="20" step="1" value="0">
+                    <div class="range-labels">
+                        <span>0</span><span>5</span><span>10</span><span>15</span><span>20</span>
+                    </div>
+                </div>
+                <div class="scale-labels">
+                    <span>muy bajo</span><span></span><span></span><span></span><span>muy alto</span>
+                </div>
+            </div>
+
+            <div class="dimension">
+                <label><strong>Demanda Física</strong> - ¿Cuán demandante fue la tarea físicamente?</label>
+                <div class="range-container">
+                    <input type="range" id="physical-demand" min="0" max="20" step="1" value="0">
+                    <div class="range-labels">
+                        <span>0</span><span>5</span><span>10</span><span>15</span><span>20</span>
+                    </div>
+                </div>
+                <div class="scale-labels">
+                    <span>muy bajo</span><span></span><span></span><span></span><span>muy alto</span>
+                </div>
+            </div>
+
+            <div class="dimension">
+                <label><strong>Demanda Temporal</strong> - ¿Qué tan apresurada o urgente fue la tarea?</label>
+                <div class="range-container">
+                    <input type="range" id="temporal-demand" min="0" max="20" step="1" value="0">
+                    <div class="range-labels">
+                        <span>0</span><span>5</span><span>10</span><span>15</span><span>20</span>
+                    </div>
+                </div>
+                <div class="scale-labels">
+                    <span>muy bajo</span><span></span><span></span><span></span><span>muy alto</span>
+                </div>
+            </div>
+
+            <div class="dimension">
+                <label><strong>Desempeño</strong> - ¿Qué tan exitoso fue en lograr lo que se le pidió?</label>
+                <div class="range-container">
+                    <input type="range" id="performance" min="0" max="20" step="1" value="0">
+                    <div class="range-labels">
+                        <span>0</span><span>5</span><span>10</span><span>15</span><span>20</span>
+                    </div>
+                </div>
+                <div class="scale-labels">
+                    <span>perfecto</span><span></span><span></span><span></span><span>fallido</span>
+                </div>
+            </div>
+
+            <div class="dimension">
+                <label><strong>Esfuerzo</strong> - ¿Cuánto esfuerzo tuvo que hacer para lograr su nivel de desempeño?</label>
+                <div class="range-container">
+                    <input type="range" id="effort" min="0" max="20" step="1" value="0">
+                    <div class="range-labels">
+                        <span>0</span><span>5</span><span>10</span><span>15</span><span>20</span>
+                    </div>
+                </div>
+                <div class="scale-labels">
+                    <span>muy bajo</span><span></span><span></span><span></span><span>muy alto</span>
+                </div>
+            </div>
+
+            <div class="dimension">
+                <label><strong>Frustración</strong> - ¿Cuán inseguro, desanimado, irritado, estresado y molesto se sintió?</label>
+                <div class="range-container">
+                    <input type="range" id="frustration" min="0" max="20" step="1" value="0">
+                    <div class="range-labels">
+                        <span>0</span><span>5</span><span>10</span><span>15</span><span>20</span>
+                    </div>
+                </div>
+                <div class="scale-labels">
+                    <span>muy bajo</span><span></span><span></span><span></span><span>muy alto</span>
+                </div>
+            </div>
+
+            <button id="save-nasa-tlx" class="green-button">Guardar NASA-TLX</button>
+        </div>
+
+        <div id="log-section" class="card" style="display:none;">
+            <h2>Prueba Completa</h2>
+            <h3>Registro de Resultados de la Prueba:</h3>
+            <pre id="test-log"></pre>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
