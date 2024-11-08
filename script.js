@@ -268,7 +268,12 @@ function getRandomAlarm(design, excludeCategory) {
         randomCategory = categories[Math.floor(Math.random() * categories.length)];
     } while (randomCategory === excludeCategory); // Ensure a different category
 
-    const randomPriority = priorities[Math.floor(Math.random() * priorities.length)];
+    let randomPriority;
+    do {
+        randomPriority = priorities[Math.floor(Math.random() * priorities.length)];
+    } while (randomPriority === excludePriority); // Ensure a different priority than the one given, if not exclusion is sent then it will be just random
+    
+   // const randomPriority = priorities[Math.floor(Math.random() * priorities.length)];
 
     return {
         category: randomCategory,
