@@ -1,4 +1,4 @@
-// Define variables for the icons and melodic alarm file paths
+// Define variables for the icons and melodic alarm file paths.
 const icons = {
     CardiovascularHigh: "audio/Icons/HPcardio.mp3",
     CardiovascularMedium: "audio/Icons/MPcardio.mp3",
