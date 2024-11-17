@@ -259,7 +259,7 @@ function getNonRepeatingAlarmPair(design) {
     ];
 }
 
-function getRandomAlarm(design, excludeCategory) {
+function getRandomAlarm(design, excludeCategory, excludePriority) {
     const categories = ["Cardiovascular", "Ventilation", "DrugAdministration"];
     const priorities = ["High", "Medium"];
     
